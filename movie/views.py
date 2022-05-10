@@ -17,6 +17,21 @@ class MovieView(View):
 
         return JsonResponse({"products" : results}, status=200)
 
+class ActorView(View):
+    
+    def get(self,request):
+        results=[]
+        actors=Actors.objects.all()
+        for actor in actors:
+            results.append({
+                "이름":actor.first_name,
+                "이름":actor.last_name,
+                "생일":actor.date_of_birth
+            })
+ 
+        return JsonResponse({"products" : results}, status=200)
+
+
 
 
 #     def post(self,request):
@@ -29,9 +44,7 @@ class MovieView(View):
 #         return JsonResponse({"message" : "SUCCESS"}, status=201)
 
 # # Create your views here.
-
-class ActorView(View):
-    # def get(self, request):
+# def get(self, request):
     #     dsaf
     # def post(self, request):
     #     input_data=json.loads(request.body)
@@ -41,15 +54,3 @@ class ActorView(View):
     #         date_of_birth=input_data["date_of_birth"]
     #     )
     #     return JsonResponse({"message" : "SUCCESS"}, status=201)
-
-    def get(self,request):
-        results=[]
-        actors=Actors.objects.all()
-        for actor in actors:
-            results.append({
-                "이름":actor.first_name,
-                "이름":actor.last_name,
-                "생일":actor.date_of_birth
-            })
- 
-        return JsonResponse({"products" : results}, status=200)
