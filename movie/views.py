@@ -36,7 +36,7 @@ class ActorView(View):
         input_data=json.loads(request.body)
         actor=Actors.objects.create(
             first_name=input_data["first_name"],
-            second_name=input_data["second_name"],
+            last_name=input_data["second_name"],
             date_of_birth=input_data["date_of_birth"]
         )
         return JsonResponse({"message" : "SUCCESS"}, status=201)
@@ -53,19 +53,19 @@ class ActorView(View):
 
         return JsonResponse({"products" : results}, status=200)
 
-# class Actors_MoviesView(View):
-#     def get(self,request):
-#         actors_movies=Actors_Movies.objects.all()
-#         realactors=Actors.objects.all()
-#         realmovies=Movies.objects.all()
-#         for actor in realactors
-#         for actor in actors:
-#             results.append({
-#                 actor.id
-#             })
-#         for actor in actors:
-#             results.append({
-#                 actor.id
-#             })
+class ActorsMoviesView(View):
+    def post(self,request):
+        input_data=json.loads(request.body)
+        # a=input_data["first_name"]+input_data["second_name"]
+        realactors=Actors.objects.get(last_name=input_data["second_name"]).id
+        realmovies=Movies.objects.get(title=input_data["movie"]).id
+        Actors_Movies.objects.create(
+            actor_id=realactors,
+            movie_id=realmovies
 
-#         return JsonResponse({"message" : "SUCCESS"}, status=201)
+        )
+        
+
+
+
+        return JsonResponse({"message" : "SUCCESS"}, status=201)
