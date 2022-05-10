@@ -5,5 +5,8 @@ class Signup(models.Model):
     name=models.CharField(max_length=45)
     email=models.EmailField(max_length=45)
     password=models.CharField(max_length=45)
-    phonenumber=models.IntegerField()
+    phonenumber=models.CharField(max_length=45)
     personal=models.CharField(max_length=45)
+
+    class Meta:
+        db_table='Signup'
