@@ -51,5 +51,5 @@ class ActorView(View):
                 "이름":actor.last_name,
                 "생일":actor.date_of_birth
             })
-
+ 
         return JsonResponse({"products" : results}, status=200)
