@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 import json
-from .models import Actors,Movies
+from .models import Actors,Movies,Actors_Movies
 from django.http import JsonResponse
 
 class MovieView(View):
@@ -12,7 +12,7 @@ class MovieView(View):
             results.append({
                 "제목":movie.title,
                 "개봉일":movie.release_date,
-                "상영시간":movie.running_time
+                "배우목록":Actors_Movies.objects.get(movie_id=movie.id).actor.first_name+Actors_Movies.objects.get(movie_id=movie.id).actor.last_name
             })
 
         return JsonResponse({"products" : results}, status=200)
@@ -48,8 +48,8 @@ class ActorView(View):
         for actor in actors:
             results.append({
                 "이름":actor.first_name,
-                "이름":actor.last_name,
-                "생일":actor.date_of_birth
+                "이f":actor.last_name,
+                "출연영화":Actors_Movies.objects.get(actor_id=actor.id).movie.title
             })
 
         return JsonResponse({"products" : results}, status=200)
