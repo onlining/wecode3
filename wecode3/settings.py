@@ -45,11 +45,9 @@ INSTALLED_APPS = [
     'owners',
     'movie',
     'signup',
-<<<<<<< HEAD
-    'startbucks'
-=======
+    'startbucks',
     'storages',
->>>>>>> main
+
 ]
 
 AWS_ACCESS_KEY_ID = 'AKIA2OUNQPHBHQD4KOVZ'
