@@ -43,7 +43,14 @@ INSTALLED_APPS = [
     'corsheaders',
     'owners',
     'movie',
+    'signup',
+    'storages',
 ]
+
+AWS_ACCESS_KEY_ID = 'AKIA2OUNQPHBHQD4KOVZ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'minjeongposting'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
