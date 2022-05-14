@@ -79,15 +79,18 @@ class OwnerandDogView(View):
         # Owners.objects.get(onwers.id==dogs.owner_id)
         # owners=Owners.objects.all()
         # owners= Owners.objects.get(dogs.owner==owners.id)
+        
         for owner in owners:
+            a=[]
             for dog in dogs:
                 if dog.owner_id==owner.id:
-                    results.append({
+                    a.append(dog.name)
+            results.append({
                         "주인":owner.name,
                         "이메일":owner.email,
                         "주인나이":owner.age,
-                        "강아지이름":dog.name,
-                        "강아지나이":dog.age,
+                        "강아지이름":a
+                       
                 
                 })
             # select name from onwers where owners.id=dogs.owner_id
