@@ -20,5 +20,6 @@ urlpatterns = [
     path("owners/",include("owners.urls")),
     path("movie/",include("movie.urls")),
     path("signup/",include("signup.urls")),
+    path("startbucks/",include("startbucks.urls"))
   
 ]
