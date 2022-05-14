@@ -44,10 +44,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'owners',
     'movie',
-    'signup',
     'startbucks',
     'storages',
-
 ]
 
 AWS_ACCESS_KEY_ID = 'AKIA2OUNQPHBHQD4KOVZ'
